@@ -8,7 +8,7 @@ public class NewSort {
 		
 
 		class Main {
-
+                   public static void main(String[] args) {
 		
 		  int partition(int array[], int low, int high) {
 
@@ -78,4 +78,4 @@ public class NewSort {
 		}
 	}
 
-
+}
