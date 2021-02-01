@@ -7,7 +7,7 @@ public class NewSort {
 	
 		
 
-	
+		class Main {
 
 		
 		  int partition(int array[], int low, int high) {
@@ -68,7 +68,7 @@ public class NewSort {
 		    int size = data.length;
 
 		   
-		    NewSort qs = new NewSort();
+		    Main qs = new Main();
 
 		
 		    qs.quickSort(data, 0, size - 1);
@@ -76,6 +76,6 @@ public class NewSort {
 		    System.out.println(Arrays.toString(data));
 		  }
 		}
-	
+	}
 
 
