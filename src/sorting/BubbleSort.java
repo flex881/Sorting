@@ -48,7 +48,7 @@ public class BubbleSort {
         
       
         ob.bubbleSort(arr);
-        System.out.println("Sorted array");
+        System.out.println("Sorted arry");
         ob.printArray(arr);
     }
 }
