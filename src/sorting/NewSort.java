@@ -5,77 +5,79 @@ import java.util.Scanner;
 public class NewSort {
 
 	
+		public static void main(String[] args) 
+    {
+      
+     int n, sum = 0;
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter no. of elements you want in array:");
+        n = s.nextInt();
+        int array[] = new int[n];
+        System.out.println("Enter all the elements:");
+        for(int i = 0; i < n; i++)
+        {
+            array[i] = s.nextInt();
+            sum = sum + array[i];
+        }
+       
+        quickSort( array, 0, array.length - 1 );
+ 
+        System.out.println(Arrays.toString(array));
+    }
+ 
+    public static void quickSort(Integer[] arr, int low, int high) 
+    {
+        //check for empty or null array
+        if (arr == null || arr.length == 0){
+            return;
+        }
+         
+        if (low >= high){
+            return;
+        }
+ 
+     
+        int middle = low + (high - low) / 2;
+        int pivot = arr[middle];
+ 
+        
+        int i = low, j = high;
+        while (i <= j) 
+        {
+            
+            while (arr[i] < pivot) 
+            {
+                i++;
+            }
+           
+            while (arr[j] > pivot) 
+            {
+                j--;
+            }
+         
+            if (i <= j) 
+            {
+                swap (arr, i, j);
+                i++;
+                j--;
+            }
+        }
+      
+        if (low < j){
+            quickSort(arr, low, j);
+        }
+        if (high > i){
+            quickSort(arr, i, high);
+        }
+    }
+     
+    public static void swap (Integer array[], int x, int y)
+    {
+        int temp = array[x];
+        array[x] = array[y];
+        array[y] = temp;
+    }
+}
+
 		
-
-		class Main {
-
-		
-		  int partition(int array[], int low, int high) {
-
-		 
-		    int pivot = array[high];
-
-		    int i = (low - 1);
-
-		  
-		    for (int j = low; j < high; j++) {
-
-		     
-		      if (array[j] <= pivot) {
-
-		        i++;
-		        int temp = array[i];
-		        array[i] = array[j];
-		        array[j] = temp;
-		      }
-		    }
-
-		    int temp = array[i + 1];
-		    array[i + 1] = array[high];
-		    array[high] = temp;
-		    return (i + 1);
-		  }
-
-		  void quickSort(int array[], int low, int high) {
-		    if (low < high) {
-
-		    
-		      int pi = partition(array, low, high);
-
-		     
-		      quickSort(array, low, pi - 1);
-
-		    
-		      quickSort(array, pi + 1, high);
-		    }
-		  }
-
-		
-		  public void main(String args[]) {
-
-		  
-			  int n, sum = 0;
-		        Scanner s = new Scanner(System.in);
-		        System.out.print("Enter no. of elements you want in array:");
-		        n = s.nextInt();
-		        int data[] = new int[n];
-		        
-		        for(int i = 0; i < n; i++)
-		        {
-		            data[i] = s.nextInt();
-		            sum = sum + data[i];
-		        }
-		    int size = data.length;
-
-		   
-		    Main qs = new Main();
-
-		
-		    qs.quickSort(data, 0, size - 1);
-		    System.out.println("Sorted Array: ");
-		    System.out.println(Arrays.toString(data));
-		  }
-		}
-	}
-
-
+}
